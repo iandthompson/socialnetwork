@@ -3,6 +3,7 @@
 import SNClasses as snc
 from SNClasses import profile as pf
 
-newuser = pf.snc.CreateProfile()
+u,p,b = snc.CreateProfile()
 
-print(f'{pf.user}\nPW: {"*"*len(pf.pw)}')
+NewUser = pf(u,p,b)
+print(NewUser.bio)

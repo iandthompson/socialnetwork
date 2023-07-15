@@ -13,7 +13,11 @@ def CreateProfile():
     return user,pw,bio
 
 def showuser():
-    print(CreateProfile)
+    u,p,b = CreateProfile()
+
+    NewUser = profile(u,p,b)
+    print(NewUser.bio)
+
 
 
 
