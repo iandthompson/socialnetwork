@@ -1,3 +1,5 @@
+from os import system,name
+
 class profile:
     def __init__(self, username, password, bio):
         self.user = username
@@ -18,8 +20,8 @@ def showuser():
     NewUser = profile(u,p,b)
     print(NewUser.bio)
 
-
-
-
-
-
+def cls():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
