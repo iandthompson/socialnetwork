@@ -33,18 +33,26 @@ while True:
     if choicemain in ('1',1):
 
         snc.cls()
+        while True:
+            un = str(input("Enter User: "))
+            if un in users.keys():
+                break
+            else:
+                continue
+        while True:
+            up = str(input("Enter Password: "))
 
-        un = str(input("Enter User: "))
-        up = str(input("Enter Password: "))
-
-        newstr = users.keys()
-        #print(newstr)
-        if un in str(newstr):
-            temp = users[un]
-            temp1 = temp[0]
-            if up == temp1:
-                print(un)
-                print(f'Bio: {temp[1]}')
+            newstr = users.keys()
+            #print(newstr)
+            if un in str(newstr):
+                temp = users[un]
+                temp1 = temp[0]
+                if up == temp1:
+                    print(un)
+                    print(f'Bio: {temp[1]}')
+                    break
+                else: 
+                    continue
         
         while True:
             edit_ch = input("Would you like to edit your profile? (y/n): ")
@@ -57,7 +65,13 @@ while True:
             print(f'What would you like to edit?\n1. Username\n2. Password\n3. Bio')
             edit_ch2 = input('(1/2/3): ')
             if edit_ch2 in ('1',1):
-                tempcurrent = input('Enter current username: ')
+                mod = 0
+                while mod == 0:
+                    tempcurrent = input('Enter current username: ')
+                    if tempcurrent in users.keys():
+                        mod +=1
+                    else:
+                        mod = 0
                 tempuser = users[tempcurrent]
                 mod = 0
                 while mod == 0:
@@ -72,6 +86,37 @@ while True:
                     tempnew = input("Enter new username: ")
                     users[tempnew] = users[tempcurrent]
                     del users[tempcurrent]
-                    print(users[tempnew])
-                    print(users.keys())
-                    input()
+                    #print(users[tempnew])
+                    #print(users.keys())
+                    input("Enter any key to continue: ")
+                    snc.cls()
+                    continue
+            if edit_ch2 in ('2',2):
+                mod = 0
+                while mod == 0:
+                    tempcurrent = input('Enter current username: ')
+                    if tempcurrent in users.keys():
+                        mod +=1
+                    else:
+                        mod = 0
+                tempuser = users[tempcurrent]
+                mod = 0
+                while mod == 0:
+                    temppass = input('Enter current password: ')
+                    if temppass == tempuser[0]:
+                        mod += 1
+                    else:
+                        print("Incorrect password")
+                        mod = 0
+                print(tempuser)
+                if temppass == tempuser[0]:
+                    tempnew = input("Enter new passsword: ")
+                    k = list(tempuser)
+                    k[0] = tempnew
+                    users[tempcurrent] = k
+                    #del users[tempcurrent]
+                    #print(users[tempnew])
+                    print(users)
+                    input("Enter any key to continue: ")
+                    snc.cls()
+                    continue
