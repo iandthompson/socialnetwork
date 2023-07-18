@@ -40,7 +40,7 @@ while True:
         title = "Welcome to Ianstagram!"
         print("*"*len(title)+'\n'+title+'\n'+"*"*len(title))
 
-        choicemain = input(f'1. View/Edit Profile\n2. Add/Remove Friends\n3. View Friends\n4. Send/Check Messages\n5. Back to Sign Up Page\n(1,2): ')
+        choicemain = input(f'1. View/Edit Profile\n2. Add/Remove Friends\n3. View Friends\n4. Send/Check Messages\n5. Back to Sign Up Page\n(1,2,3,4,5): ')
 
         if choicemain in ('1',1):
 
